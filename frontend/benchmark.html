@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXEL PUNCH - Benchmark Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logo.png" alt="PIXEL PUNCH Logo" class="logo-img">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html" id="nav-home">Home</a></li>
+            <li>
+                <a href="benchmark.html" class="has-dropdown active" class="active" id="nav-benchmark">Benchmark</a>
+                <div class="dropdown">
+                    <a href="benchmark.html" class="active" id="nav-benchmark-test">Benchmark Test</a>
+                    <a href="result.html" id="nav-results">Results</a>
+                    <a href="compare.html" id="nav-compare">Compare</a>
+                    <a href="requirements.html" id="nav-requirements">Can I Run It?</a>
+                </div>
+            </li>
+            <li>
+                <a href="reviews.html" class="has-dropdown" id="nav-community">Community</a>
+                <div class="dropdown">
+                    <a href="reviews.html" id="nav-reviews">Reviews</a>
+                    <a href="comments.html" id="nav-comments">Comments</a>
+                </div>
+            </li>
+            <li>
+                <a href="about.html" class="has-dropdown" id="nav-info">Info</a>
+                <div class="dropdown">
+                    <a href="about.html" id="nav-about">About</a>
+                    <a href="technical_architecture.html" id="nav-tech">Technical Architecture</a>
+                    <a href="limitations.html" id="nav-limitations">Limitations</a>
+                    <a href="contact.html" id="nav-contact">Contact</a>
+                </div>
+            </li>
+            <li>
+                <a href="settings.html" class="has-dropdown" id="nav-account">Account</a>
+                <div class="dropdown">
+                    <a href="settings.html" id="nav-settings">Settings</a>
+                    <a href="notifications.html" id="nav-notifications">Notifications</a>
+                    <a href="login.html" id="nav-login">Login</a>
+                    <a href="register.html" id="nav-register">Register</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Benchmark Test</h1>
+        <p style="text-align: center; margin-bottom: 2rem; color: #9d4edd;">Enter your PC specifications below to receive estimated benchmark results</p>
+
+        <!-- ── LOAD PROFILE SECTION ── -->
+        <div class="form-section" id="profileSection" style="display:none;">
+            <h2>Load a Saved Profile</h2>
+            <p style="color:#b3b3b3; margin-bottom:1rem;">Select a saved hardware profile to auto-fill your specs.</p>
+            <div style="display:flex; gap:1rem; align-items:center; flex-wrap:wrap;">
+                <select id="profileDropdown" style="flex:1; min-width:200px;">
+                    <option value="">-- Select a profile --</option>
+                </select>
+                <button type="button" class="btn" id="loadProfileBtn" style="margin:0; padding:0.75rem 1.5rem;">Load</button>
+                <button type="button" id="deleteProfileBtn" style="margin:0; padding:0.75rem 1.5rem; background:transparent; border:1px solid #ef4444; color:#f87171; border-radius:4px; cursor:pointer; font-weight:600; transition:all 0.3s;">Delete</button>
+            </div>
+            <div id="profileMessage" style="margin-top:0.75rem; font-size:0.9rem; display:none;"></div>
+        </div>
+
+        <form id="benchmarkForm">
+            <div class="form-section">
+                <h2>CPU Specification</h2>
+                <div class="form-group">
+                    <label for="cpuName">CPU Name</label>
+                    <select id="cpuName" name="cpuName" required>
+                        <option value="">Select CPU Name</option>
+                        <optgroup label="Intel">
+                            <option value="Intel Core i3">Intel Core i3</option>
+                            <option value="Intel Core i5">Intel Core i5</option>
+                            <option value="Intel Core i7">Intel Core i7</option>
+                            <option value="Intel Core i9">Intel Core i9</option>
+                        </optgroup>
+                        <optgroup label="AMD Ryzen 9000 Series">
+                            <option value="AMD Ryzen 9 9950X">AMD Ryzen 9 9950X</option>
+                            <option value="AMD Ryzen 9 9900X">AMD Ryzen 9 9900X</option>
+                            <option value="AMD Ryzen 7 9800X3D">AMD Ryzen 7 9800X3D</option>
+                            <option value="AMD Ryzen 7 9700X">AMD Ryzen 7 9700X</option>
+                            <option value="AMD Ryzen 5 9600X">AMD Ryzen 5 9600X</option>
+                        </optgroup>
+                        <optgroup label="AMD Ryzen 7000 Series">
+                            <option value="AMD Ryzen 7 7700">AMD Ryzen 7 7700</option>
+                            <option value="AMD Ryzen 5 7600">AMD Ryzen 5 7600</option>
+                        </optgroup>
+                        <optgroup label="AMD Ryzen 5000 Series">
+                            <option value="AMD Ryzen 5 5600">AMD Ryzen 5 5600</option>
+                            <option value="AMD Ryzen 5 5500">AMD Ryzen 5 5500</option>
+                        </optgroup>
+                        <optgroup label="AMD Ryzen 4000 Series">
+                            <option value="AMD Ryzen 3 4100">AMD Ryzen 3 4100</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="cpuSpeed">CPU Speed (GHz)</label>
+                    <input type="number" id="cpuSpeed" name="cpuSpeed" step="0.1" min="1" max="5" required placeholder="e.g., 3.6">
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Memory Specification</h2>
+                <div class="form-group">
+                    <label for="ramSize">RAM Size (GB)</label>
+                    <select id="ramSize" name="ramSize" required>
+                        <option value="">Select RAM Size</option>
+                        <option value="4">4GB</option>
+                        <option value="8">8GB</option>
+                        <option value="16">16GB</option>
+                        <option value="32">32GB</option>
+                        <option value="64">64GB</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>GPU Specification</h2>
+                <div class="form-group">
+                    <label for="gpuName">GPU Name</label>
+                    <input type="text" id="gpuName" name="gpuName" required placeholder="e.g., NVIDIA GeForce RTX 3070">
+                </div>
+                <div class="form-group">
+                    <label for="gpuMemory">GPU Memory</label>
+                    <select id="gpuMemory" name="gpuMemory" required>
+                        <option value="">Select GPU Memory</option>
+                        <option value="1">1GB</option>
+                        <option value="2">2GB</option>
+                        <option value="4">4GB</option>
+                        <option value="8">8GB</option>
+                        <option value="12">12GB</option>
+                        <option value="16">16GB</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Game Selection</h2>
+                <div class="form-group">
+                    <label for="gameSelect">Select Game</label>
+                    <select id="gameSelect" name="gameSelect" required>
+                        <option value="">Choose a game</option>
+                        <optgroup label="Supported Games">
+                            <option value="Grand Theft Auto V">Grand Theft Auto V</option>
+                            <option value="Red Dead Redemption 2">Red Dead Redemption 2</option>
+                            <option value="Elden Ring">Elden Ring</option>
+                            <option value="Fortnite">Fortnite</option>
+                            <option value="Assassin's Creed Mirage">Assassin's Creed Mirage</option>
+                            <option value="Mafia 3">Mafia 3</option>
+                            <option value="Forza Horizon 5">Forza Horizon 5</option>
+                            <option value="Ghost of Tsushima">Ghost of Tsushima</option>
+                            <option value="Resident Evil 4 Remake">Resident Evil 4 Remake</option>
+                            <option value="Valorant">Valorant</option>
+                            <option value="Cyberpunk 2077">Cyberpunk 2077</option>
+                            <option value="The Witcher 3: Wild Hunt">The Witcher 3: Wild Hunt</option>
+                            <option value="Minecraft">Minecraft</option>
+                            <option value="Counter-Strike 2">Counter-Strike 2</option>
+                            <option value="Baldur's Gate 3">Baldur's Gate 3</option>
+                            <option value="Hades">Hades</option>
+                            <option value="Hogwarts Legacy">Hogwarts Legacy</option>
+                            <option value="Kingdom Come: Deliverance II">Kingdom Come: Deliverance II</option>
+                            <option value="Marvel Rivals">Marvel Rivals</option>
+                            <option value="Black Myth: Wukong">Black Myth: Wukong</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+
+            <!-- ── SAVE PROFILE SECTION ── -->
+            <div class="form-section" id="saveProfileSection" style="display:none;">
+                <h2>Save as Hardware Profile</h2>
+                <p style="color:#b3b3b3; margin-bottom:1rem;">Save your current specs so you can load them quickly next time.</p>
+                <div style="display:flex; gap:1rem; align-items:center; flex-wrap:wrap;">
+                    <input type="text" id="profileNameInput" placeholder="e.g. My Gaming PC" style="flex:1; min-width:200px;" maxlength="100">
+                    <button type="button" class="btn" id="saveProfileBtn" style="margin:0; padding:0.75rem 1.5rem;">Save Profile</button>
+                </div>
+                <div id="saveProfileMessage" style="margin-top:0.75rem; font-size:0.9rem; display:none;"></div>
+            </div>
+
+            <button type="submit" class="btn" id="submitBtn">Run Benchmark Analysis</button>
+        </form>
+
+        <div class="loading" id="loadingIndicator">
+            <div class="spinner"></div>
+            <p style="color: #c77dff;">Processing benchmark analysis...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
