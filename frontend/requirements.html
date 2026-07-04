@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXEL PUNCH - Game Requirements</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logo.png" alt="PIXEL PUNCH Logo" class="logo-img">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html" id="nav-home">Home</a></li>
+            <li>
+                <a href="benchmark.html" class="has-dropdown active" class="active" id="nav-benchmark">Benchmark</a>
+                <div class="dropdown">
+                    <a href="benchmark.html" id="nav-benchmark-test">Benchmark Test</a>
+                    <a href="result.html" id="nav-results">Results</a>
+                    <a href="compare.html" id="nav-compare">Compare</a>
+                    <a href="requirements.html" class="active" id="nav-requirements">Can I Run It?</a>
+                </div>
+            </li>
+            <li>
+                <a href="reviews.html" class="has-dropdown" id="nav-community">Community</a>
+                <div class="dropdown">
+                    <a href="reviews.html" id="nav-reviews">Reviews</a>
+                    <a href="comments.html" id="nav-comments">Comments</a>
+                </div>
+            </li>
+            <li>
+                <a href="about.html" class="has-dropdown" id="nav-info">Info</a>
+                <div class="dropdown">
+                    <a href="about.html" id="nav-about">About</a>
+                    <a href="technical_architecture.html" id="nav-tech">Technical Architecture</a>
+                    <a href="limitations.html" id="nav-limitations">Limitations</a>
+                    <a href="contact.html" id="nav-contact">Contact</a>
+                </div>
+            </li>
+            <li>
+                <a href="settings.html" class="has-dropdown" id="nav-account">Account</a>
+                <div class="dropdown">
+                    <a href="settings.html" id="nav-settings">Settings</a>
+                    <a href="notifications.html" id="nav-notifications">Notifications</a>
+                    <a href="login.html" id="nav-login">Login</a>
+                    <a href="register.html" id="nav-register">Register</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Can I Run It?</h1>
+        <p style="text-align:center; color:#9d4edd; margin-bottom:2rem;">
+            Enter your PC specs and pick a game to see if your system meets the requirements
+        </p>
+
+        <!-- Input Form -->
+        <div class="form-section">
+            <h2>Your System Specs</h2>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+                <div class="form-group" style="margin:0;">
+                    <label for="reqRam">Your RAM (GB)</label>
+                    <select id="reqRam">
+                        <option value="">Select RAM</option>
+                        <option value="4">4 GB</option>
+                        <option value="8">8 GB</option>
+                        <option value="16">16 GB</option>
+                        <option value="32">32 GB</option>
+                        <option value="64">64 GB</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin:0;">
+                    <label for="reqVram">Your GPU VRAM (GB)</label>
+                    <select id="reqVram">
+                        <option value="">Select VRAM</option>
+                        <option value="1">1 GB</option>
+                        <option value="2">2 GB</option>
+                        <option value="4">4 GB</option>
+                        <option value="8">8 GB</option>
+                        <option value="12">12 GB</option>
+                        <option value="16">16 GB</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-top:1.5rem;">
+                <label for="reqGame">Select Game</label>
+                <select id="reqGame">
+                    <option value="">-- Choose a game --</option>
+                    <optgroup label="Original Games">
+                        <option value="Grand Theft Auto V">Grand Theft Auto V</option>
+                        <option value="Red Dead Redemption 2">Red Dead Redemption 2</option>
+                        <option value="Elden Ring">Elden Ring</option>
+                        <option value="Fortnite">Fortnite</option>
+                        <option value="Assassin's Creed Mirage">Assassin's Creed Mirage</option>
+                        <option value="Mafia 3">Mafia 3</option>
+                        <option value="Forza Horizon 5">Forza Horizon 5</option>
+                        <option value="Ghost of Tsushima">Ghost of Tsushima</option>
+                        <option value="Resident Evil 4 Remake">Resident Evil 4 Remake</option>
+                        <option value="Valorant">Valorant</option>
+                    </optgroup>
+                    <optgroup label="New Games">
+                        <option value="Cyberpunk 2077">Cyberpunk 2077</option>
+                        <option value="The Witcher 3: Wild Hunt">The Witcher 3: Wild Hunt</option>
+                        <option value="Minecraft">Minecraft</option>
+                        <option value="Counter-Strike 2">Counter-Strike 2</option>
+                        <option value="Baldur's Gate 3">Baldur's Gate 3</option>
+                        <option value="Hades">Hades</option>
+                        <option value="Hogwarts Legacy">Hogwarts Legacy</option>
+                        <option value="Kingdom Come: Deliverance II">Kingdom Come: Deliverance II</option>
+                        <option value="Marvel Rivals">Marvel Rivals</option>
+                        <option value="Black Myth: Wukong">Black Myth: Wukong</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div id="reqMessage" style="display:none; margin-top:1rem; font-size:0.95rem;"></div>
+
+            <div style="text-align:center; margin-top:1.5rem;">
+                <button class="btn" id="checkReqBtn" style="margin:0;">Check Requirements</button>
+            </div>
+        </div>
+
+        <!-- Results Panel -->
+        <div id="reqResultPanel" style="display:none;">
+
+            <!-- Game info banner -->
+            <div class="spec-display" style="margin-bottom:2rem;">
+                <h2 style="margin:0 0 1rem 0;" id="reqGameTitle"></h2>
+                <div class="spec-grid" id="reqGameInfo"></div>
+            </div>
+
+            <!-- Minimum Requirements -->
+            <h2>Minimum Requirements</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Required</th>
+                        <th>Your System</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="minReqTable"></tbody>
+            </table>
+
+            <!-- Recommended Requirements -->
+            <h2>Recommended Requirements</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Recommended</th>
+                        <th>Your System</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="recReqTable"></tbody>
+            </table>
+
+            <!-- Overall verdict -->
+            <div id="verdictBanner" style="
+                text-align:center;
+                padding:2rem;
+                border-radius:8px;
+                margin:2rem 0;
+                font-size:1.3rem;
+                font-weight:700;
+                border:1px solid;
+            "></div>
+
+            <div style="text-align:center;">
+                <a href="benchmark.html" class="btn">Run Full Benchmark</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
