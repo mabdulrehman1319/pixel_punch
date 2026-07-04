@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXEL PUNCH - Comments</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .comment-card {
+            background: rgba(10, 5, 15, 0.6);
+            border-left: 3px solid #7b2cbf;
+            border-radius: 4px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .comment-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+        .comment-username { color: #c77dff; font-weight: 700; font-size: 0.9rem; }
+        .comment-date     { color: #9d4edd; font-size: 0.8rem; }
+        .comment-text     { color: #e0e0e0; font-size: 0.95rem; line-height: 1.6; }
+        body.light-theme .comment-card  { background: rgba(240,230,255,0.5); }
+        body.light-theme .comment-text  { color: #1a0a2e; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logo.png" alt="PIXEL PUNCH Logo" class="logo-img">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html" id="nav-home">Home</a></li>
+            <li>
+                <a href="benchmark.html" class="has-dropdown" id="nav-benchmark">Benchmark</a>
+                <div class="dropdown">
+                    <a href="benchmark.html" id="nav-benchmark-test">Benchmark Test</a>
+                    <a href="result.html" id="nav-results">Results</a>
+                    <a href="compare.html" id="nav-compare">Compare</a>
+                    <a href="requirements.html" id="nav-requirements">Can I Run It?</a>
+                </div>
+            </li>
+            <li>
+                <a href="reviews.html" class="has-dropdown active" id="nav-community">Community</a>
+                <div class="dropdown">
+                    <a href="reviews.html" id="nav-reviews">Reviews</a>
+                    <a href="comments.html" class="active" id="nav-comments">Comments</a>
+                </div>
+            </li>
+            <li>
+                <a href="about.html" class="has-dropdown" id="nav-info">Info</a>
+                <div class="dropdown">
+                    <a href="about.html" id="nav-about">About</a>
+                    <a href="technical_architecture.html" id="nav-tech">Technical Architecture</a>
+                    <a href="limitations.html" id="nav-limitations">Limitations</a>
+                    <a href="contact.html" id="nav-contact">Contact</a>
+                </div>
+            </li>
+            <li>
+                <a href="settings.html" class="has-dropdown" id="nav-account">Account</a>
+                <div class="dropdown">
+                    <a href="settings.html" id="nav-settings">Settings</a>
+                    <a href="notifications.html" id="nav-notifications">Notifications</a>
+                    <a href="login.html" id="nav-login">Login</a>
+                    <a href="register.html" id="nav-register">Register</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Comments</h1>
+        <p style="text-align:center; color:#9d4edd; margin-bottom:2rem;">
+            Your benchmark history — view and comment on each run
+        </p>
+
+        <!-- Not logged in -->
+        <div id="notLoggedIn" style="display:none; text-align:center; padding:3rem;">
+            <p style="color:#9d4edd; font-size:1.2rem; margin-bottom:1.5rem;">
+                You must be logged in to view your benchmark history and comments.
+            </p>
+            <a href="login.html" class="btn">Go to Login</a>
+        </div>
+
+        <!-- History + Comments -->
+        <div id="historySection" style="display:none;">
+            <div id="historyList"></div>
+        </div>
+
+        <div id="noHistory" style="display:none; text-align:center; padding:3rem;">
+            <p style="color:#9d4edd; font-size:1.1rem; margin-bottom:1.5rem;">
+                No benchmark results yet. Run a benchmark first!
+            </p>
+            <a href="benchmark.html" class="btn">Run Benchmark</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
