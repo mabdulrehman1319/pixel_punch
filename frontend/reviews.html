@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXEL PUNCH - Game Reviews</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .star-rating {
+            display: flex;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+        .star-rating .star {
+            font-size: 2rem;
+            cursor: pointer;
+            color: #4a4a6a;
+            transition: color 0.2s;
+            user-select: none;
+        }
+        .star-rating .star.active,
+        .star-rating .star.hover {
+            color: #f59e0b;
+        }
+        .review-card {
+            background: rgba(30, 15, 45, 0.6);
+            border: 1px solid #7b2cbf;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .review-username {
+            color: #c77dff;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .review-date {
+            color: #9d4edd;
+            font-size: 0.85rem;
+        }
+        .review-stars {
+            color: #f59e0b;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .review-text {
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+        .no-reviews {
+            text-align: center;
+            color: #9d4edd;
+            padding: 2rem;
+            font-size: 1rem;
+        }
+        body.light-theme .review-card {
+            background: rgba(255,255,255,0.85);
+            border-color: #9d4edd;
+        }
+        body.light-theme .review-text { color: #1a0a2e; }
+        body.light-theme .star-rating .star { color: #c4b5d4; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logo.png" alt="PIXEL PUNCH Logo" class="logo-img">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html" id="nav-home">Home</a></li>
+            <li>
+                <a href="benchmark.html" class="has-dropdown" id="nav-benchmark">Benchmark</a>
+                <div class="dropdown">
+                    <a href="benchmark.html" id="nav-benchmark-test">Benchmark Test</a>
+                    <a href="result.html" id="nav-results">Results</a>
+                    <a href="compare.html" id="nav-compare">Compare</a>
+                    <a href="requirements.html" id="nav-requirements">Can I Run It?</a>
+                </div>
+            </li>
+            <li>
+                <a href="reviews.html" class="has-dropdown active" class="active" id="nav-community">Community</a>
+                <div class="dropdown">
+                    <a href="reviews.html" class="active" id="nav-reviews">Reviews</a>
+                    <a href="comments.html" id="nav-comments">Comments</a>
+                </div>
+            </li>
+            <li>
+                <a href="about.html" class="has-dropdown" id="nav-info">Info</a>
+                <div class="dropdown">
+                    <a href="about.html" id="nav-about">About</a>
+                    <a href="technical_architecture.html" id="nav-tech">Technical Architecture</a>
+                    <a href="limitations.html" id="nav-limitations">Limitations</a>
+                    <a href="contact.html" id="nav-contact">Contact</a>
+                </div>
+            </li>
+            <li>
+                <a href="settings.html" class="has-dropdown" id="nav-account">Account</a>
+                <div class="dropdown">
+                    <a href="settings.html" id="nav-settings">Settings</a>
+                    <a href="notifications.html" id="nav-notifications">Notifications</a>
+                    <a href="login.html" id="nav-login">Login</a>
+                    <a href="register.html" id="nav-register">Register</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Game Reviews</h1>
+        <p style="text-align:center; color:#9d4edd; margin-bottom:2rem;">
+            Rate and review games based on your experience
+        </p>
+
+        <!-- Write a Review (logged in only) -->
+        <div id="writeReviewSection" style="display:none;">
+            <div class="form-section">
+                <h2>Write a Review</h2>
+
+                <div class="form-group">
+                    <label for="reviewGame">Select Game</label>
+                    <select id="reviewGame">
+                        <option value="">-- Choose a game --</option>
+                        <optgroup label="Supported Games">
+                            <option value="Grand Theft Auto V">Grand Theft Auto V</option>
+                            <option value="Red Dead Redemption 2">Red Dead Redemption 2</option>
+                            <option value="Elden Ring">Elden Ring</option>
+                            <option value="Fortnite">Fortnite</option>
+                            <option value="Assassin's Creed Mirage">Assassin's Creed Mirage</option>
+                            <option value="Mafia 3">Mafia 3</option>
+                            <option value="Forza Horizon 5">Forza Horizon 5</option>
+                            <option value="Ghost of Tsushima">Ghost of Tsushima</option>
+                            <option value="Resident Evil 4 Remake">Resident Evil 4 Remake</option>
+                            <option value="Valorant">Valorant</option>
+                            <option value="Cyberpunk 2077">Cyberpunk 2077</option>
+                            <option value="The Witcher 3: Wild Hunt">The Witcher 3: Wild Hunt</option>
+                            <option value="Minecraft">Minecraft</option>
+                            <option value="Counter-Strike 2">Counter-Strike 2</option>
+                            <option value="Baldur's Gate 3">Baldur's Gate 3</option>
+                            <option value="Hades">Hades</option>
+                            <option value="Hogwarts Legacy">Hogwarts Legacy</option>
+                            <option value="Kingdom Come: Deliverance II">Kingdom Come: Deliverance II</option>
+                            <option value="Marvel Rivals">Marvel Rivals</option>
+                            <option value="Black Myth: Wukong">Black Myth: Wukong</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Your Rating</label>
+                    <div class="star-rating" id="starRating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <p id="ratingLabel" style="color:#9d4edd; font-size:0.9rem; margin-top:0.25rem;">Click a star to rate</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="reviewText">Your Review</label>
+                    <textarea id="reviewText" rows="5"
+                        placeholder="Share your experience with this game..."
+                        style="width:100%; padding:0.75rem; background:rgba(10,5,15,0.8);
+                               border:1px solid #7b2cbf; border-radius:4px; color:#e0e0e0;
+                               font-size:1rem; font-family:inherit; resize:vertical;"></textarea>
+                </div>
+
+                <div id="reviewMessage" style="display:none; margin-bottom:1rem; font-size:0.95rem;"></div>
+
+                <div style="text-align:center;">
+                    <button class="btn" id="submitReviewBtn" style="margin:0;">Submit Review</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login prompt for guests -->
+        <div id="loginPrompt" style="display:none;">
+            <div class="form-section" style="text-align:center;">
+                <p style="color:#9d4edd; margin-bottom:1rem;">Login to write your own review.</p>
+                <a href="login.html" class="btn" style="margin:0;">Login</a>
+            </div>
+        </div>
+
+        <!-- Browse Reviews by Game -->
+        <div class="form-section" style="margin-top:2rem;">
+            <h2>Browse Reviews</h2>
+            <div class="form-group" style="margin-bottom:0;">
+                <label for="browseGame">Select Game to View Reviews</label>
+                <select id="browseGame">
+                    <option value="">-- Choose a game --</option>
+                    <optgroup label="Original Games">
+                        <option value="Grand Theft Auto V">Grand Theft Auto V</option>
+                        <option value="Red Dead Redemption 2">Red Dead Redemption 2</option>
+                        <option value="Elden Ring">Elden Ring</option>
+                        <option value="Fortnite">Fortnite</option>
+                        <option value="Assassin's Creed Mirage">Assassin's Creed Mirage</option>
+                        <option value="Mafia 3">Mafia 3</option>
+                        <option value="Forza Horizon 5">Forza Horizon 5</option>
+                        <option value="Ghost of Tsushima">Ghost of Tsushima</option>
+                        <option value="Resident Evil 4 Remake">Resident Evil 4 Remake</option>
+                        <option value="Valorant">Valorant</option>
+                    </optgroup>
+                    <optgroup label="New Games">
+                        <option value="Cyberpunk 2077">Cyberpunk 2077</option>
+                        <option value="The Witcher 3: Wild Hunt">The Witcher 3: Wild Hunt</option>
+                        <option value="Minecraft">Minecraft</option>
+                        <option value="Counter-Strike 2">Counter-Strike 2</option>
+                        <option value="Baldur's Gate 3">Baldur's Gate 3</option>
+                        <option value="Hades">Hades</option>
+                        <option value="Hogwarts Legacy">Hogwarts Legacy</option>
+                        <option value="Kingdom Come: Deliverance II">Kingdom Come: Deliverance II</option>
+                        <option value="Marvel Rivals">Marvel Rivals</option>
+                        <option value="Black Myth: Wukong">Black Myth: Wukong</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+
+        <!-- Reviews List -->
+        <div id="reviewsList" style="display:none; margin-top:1rem;">
+            <div id="reviewsHeader" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:1rem;">
+                <h2 id="reviewsGameTitle" style="margin:0;"></h2>
+                <div id="avgRatingDisplay" style="font-size:1.1rem; color:#f59e0b;"></div>
+            </div>
+            <div id="reviewsContainer"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

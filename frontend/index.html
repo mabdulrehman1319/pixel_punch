@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXEL PUNCH - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logo.png" alt="PIXEL PUNCH Logo" class="logo-img">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html" class="active" id="nav-home">Home</a></li>
+            <li>
+                <a href="#" class="has-dropdown" id="nav-benchmark">Benchmark</a>
+                <div class="dropdown">
+                    <a href="benchmark.html" id="nav-benchmark-test">Benchmark Test</a>
+                    <a href="result.html" id="nav-results">Results</a>
+                    <a href="compare.html" id="nav-compare">Compare</a>
+                    <a href="requirements.html" id="nav-requirements">Can I Run It?</a>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="has-dropdown" id="nav-community">Community</a>
+                <div class="dropdown">
+                    <a href="reviews.html" id="nav-reviews">Reviews</a>
+                    <a href="comments.html" id="nav-comments">Comments</a>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="has-dropdown" id="nav-info">Info</a>
+                <div class="dropdown">
+                    <a href="about.html" id="nav-about">About</a>
+                    <a href="technical_architecture.html" id="nav-tech">Technical Architecture</a>
+                    <a href="limitations.html" id="nav-limitations">Limitations</a>
+                    <a href="contact.html" id="nav-contact">Contact</a>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="has-dropdown" id="nav-account">Account</a>
+                <div class="dropdown">
+                    <a href="settings.html" id="nav-settings">Settings</a>
+                    <a href="notifications.html" id="nav-notifications">Notifications</a>
+                    <a href="login.html" id="nav-login">Login</a>
+                    <a href="register.html" id="nav-register">Register</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>PIXEL PUNCH</h1>
+        <div class="intro">
+            <h2>Overview</h2>
+            <p>The PIXEL PUNCH is a Gaming Benchmark System that is an academic research tool designed to provide estimated performance metrics for contemporary gaming systems. This platform employs computational modeling to estimate frame rates, resource utilization, and thermal characteristics based on user-specified hardware configurations.</p>
+            
+            <h3>Methodology</h3>
+            <p>Our benchmarking system utilizes algorithmic estimation techniques that correlate hardware specifications with expected performance outcomes across a curated selection of modern gaming titles. The analysis incorporates multiple performance vectors including:</p>
+            <ul>
+                <li>Frame rate estimation (minimum, maximum, and average FPS)</li>
+                <li>Component utilization analysis (CPU, GPU, and RAM usage patterns)</li>
+                <li>Thermal profiling (temperature estimation under sustained load)</li>
+            </ul>
+            
+            <h3>Educational Purpose</h3>
+            <p>This tool serves as an educational resource for understanding the relationship between PC hardware capabilities and gaming performance. All results represent estimated benchmarks derived from researches rather than real-time measurements, making this platform suitable for academic analysis, comparative studies, and hardware planning exercises.</p>
+            
+            <h3>Supported Analysis</h3>
+            <p>The system currently supports performance analysis for ten carefully selected modern gaming titles, spanning various genres and graphical complexity levels. Each game presents unique computational demands, allowing for comprehensive hardware evaluation across diverse workload scenarios.</p>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="benchmark.html" class="btn">Start Benchmark Test</a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

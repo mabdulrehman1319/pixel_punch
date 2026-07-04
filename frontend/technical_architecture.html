@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXEL PUNCH - Technical Architecture</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logo.png" alt="PIXEL PUNCH Logo" class="logo-img">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html" id="nav-home">Home</a></li>
+            <li>
+                <a href="benchmark.html" class="has-dropdown" id="nav-benchmark">Benchmark</a>
+                <div class="dropdown">
+                    <a href="benchmark.html" id="nav-benchmark-test">Benchmark Test</a>
+                    <a href="result.html" id="nav-results">Results</a>
+                    <a href="compare.html" id="nav-compare">Compare</a>
+                    <a href="requirements.html" id="nav-requirements">Can I Run It?</a>
+                </div>
+            </li>
+            <li>
+                <a href="reviews.html" class="has-dropdown" id="nav-community">Community</a>
+                <div class="dropdown">
+                    <a href="reviews.html" id="nav-reviews">Reviews</a>
+                    <a href="comments.html" id="nav-comments">Comments</a>
+                </div>
+            </li>
+            <li>
+                <a href="about.html" class="has-dropdown active" class="active" id="nav-info">Info</a>
+                <div class="dropdown">
+                    <a href="about.html" id="nav-about">About</a>
+                    <a href="technical_architecture.html" class="active" id="nav-tech">Technical Architecture</a>
+                    <a href="limitations.html" id="nav-limitations">Limitations</a>
+                    <a href="contact.html" id="nav-contact">Contact</a>
+                </div>
+            </li>
+            <li>
+                <a href="settings.html" class="has-dropdown" id="nav-account">Account</a>
+                <div class="dropdown">
+                    <a href="settings.html" id="nav-settings">Settings</a>
+                    <a href="notifications.html" id="nav-notifications">Notifications</a>
+                    <a href="login.html" id="nav-login">Login</a>
+                    <a href="register.html" id="nav-register">Register</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Technical Architecture</h1>
+        <p style="text-align: center; margin-bottom: 2rem; color: #9d4edd;">Understanding the structure and components of Pixel Punch</p>
+
+        <div class="methodology-section">
+            <h2>Frontend Components</h2>
+            <p>Our frontend is built using modern web technologies to provide a seamless user experience:</p>
+            <ul>
+                <li>HTML structure for multi-page navigation</li>
+                <li>CSS styling with dark theme and purple accent scheme</li>
+                <li>JavaScript for form validation, data submission, and dynamic visualization</li>
+                <li>Chart.js integration for graphical data representation</li>
+            </ul>
+        </div>
+
+        <div class="methodology-section">
+            <h2>Backend Integration</h2>
+            <p>Our backend architecture is designed for scalability and performance:</p>
+            <ul>
+                <li>RESTful API communication via JSON payloads</li>
+                <li>Compatible with Python frameworks (Flask)</li>
+                <li>Asynchronous request handling with loading indicators</li>
+                <li>Structured data exchange for benchmark results</li>
+            </ul>
+        </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXEL PUNCH - Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logo.png" alt="PIXEL PUNCH Logo" class="logo-img">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html" id="nav-home">Home</a></li>
+            <li>
+                <a href="benchmark.html" class="has-dropdown" id="nav-benchmark">Benchmark</a>
+                <div class="dropdown">
+                    <a href="benchmark.html" id="nav-benchmark-test">Benchmark Test</a>
+                    <a href="result.html" id="nav-results">Results</a>
+                    <a href="compare.html" id="nav-compare">Compare</a>
+                    <a href="requirements.html" id="nav-requirements">Can I Run It?</a>
+                </div>
+            </li>
+            <li>
+                <a href="reviews.html" class="has-dropdown" id="nav-community">Community</a>
+                <div class="dropdown">
+                    <a href="reviews.html" id="nav-reviews">Reviews</a>
+                    <a href="comments.html" id="nav-comments">Comments</a>
+                </div>
+            </li>
+            <li>
+                <a href="about.html" class="has-dropdown" id="nav-info">Info</a>
+                <div class="dropdown">
+                    <a href="about.html" id="nav-about">About</a>
+                    <a href="technical_architecture.html" id="nav-tech">Technical Architecture</a>
+                    <a href="limitations.html" id="nav-limitations">Limitations</a>
+                    <a href="contact.html" id="nav-contact">Contact</a>
+                </div>
+            </li>
+            <li>
+                <a href="settings.html" class="has-dropdown active" class="active" id="nav-account">Account</a>
+                <div class="dropdown">
+                    <a href="settings.html" id="nav-settings">Settings</a>
+                    <a href="notifications.html" id="nav-notifications">Notifications</a>
+                    <a href="login.html" id="nav-login">Login</a>
+                    <a href="register.html" class="active" id="nav-register">Register</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Create Account</h1>
+        <p style="text-align:center; color:#9d4edd; margin-bottom:2rem;">Join Pixel Punch to save and track your benchmarks</p>
+
+        <div class="auth-card">
+            <!-- Error / Success messages -->
+            <div id="authMessage" class="auth-message" style="display:none;"></div>
+
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="regUsername">Username</label>
+                    <input type="text" id="regUsername" name="username" required placeholder="Choose a username" minlength="3" maxlength="50">
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" name="email" required placeholder="Enter your email address">
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" name="password" required placeholder="Create a password (min 6 characters)" minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="regConfirmPassword">Confirm Password</label>
+                    <input type="password" id="regConfirmPassword" name="confirmPassword" required placeholder="Repeat your password">
+                </div>
+                <button type="submit" class="btn" style="width:100%; margin:1.5rem 0 0 0;">Create Account</button>
+            </form>
+
+            <p style="text-align:center; margin-top:1.5rem; color:#b3b3b3;">
+                Already have an account? 
+                <a href="login.html" style="color:#c77dff; text-decoration:none; font-weight:600;">Login here</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

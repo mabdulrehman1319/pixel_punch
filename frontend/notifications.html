@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXEL PUNCH - Notifications</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logo.png" alt="PIXEL PUNCH Logo" class="logo-img">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html" id="nav-home">Home</a></li>
+            <li>
+                <a href="benchmark.html" class="has-dropdown" id="nav-benchmark">Benchmark</a>
+                <div class="dropdown">
+                    <a href="benchmark.html" id="nav-benchmark-test">Benchmark Test</a>
+                    <a href="result.html" id="nav-results">Results</a>
+                    <a href="compare.html" id="nav-compare">Compare</a>
+                    <a href="requirements.html" id="nav-requirements">Can I Run It?</a>
+                </div>
+            </li>
+            <li>
+                <a href="reviews.html" class="has-dropdown" id="nav-community">Community</a>
+                <div class="dropdown">
+                    <a href="reviews.html" id="nav-reviews">Reviews</a>
+                    <a href="comments.html" id="nav-comments">Comments</a>
+                </div>
+            </li>
+            <li>
+                <a href="about.html" class="has-dropdown" id="nav-info">Info</a>
+                <div class="dropdown">
+                    <a href="about.html" id="nav-about">About</a>
+                    <a href="technical_architecture.html" id="nav-tech">Technical Architecture</a>
+                    <a href="limitations.html" id="nav-limitations">Limitations</a>
+                    <a href="contact.html" id="nav-contact">Contact</a>
+                </div>
+            </li>
+            <li>
+                <a href="settings.html" class="has-dropdown active" class="active" id="nav-account">Account</a>
+                <div class="dropdown">
+                    <a href="settings.html" id="nav-settings">Settings</a>
+                    <a href="notifications.html" class="active" id="nav-notifications">Notifications</a>
+                    <a href="login.html" id="nav-login">Login</a>
+                    <a href="register.html" id="nav-register">Register</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Notifications</h1>
+        <p style="text-align:center; color:#9d4edd; margin-bottom:2rem;">
+            Your activity updates and alerts
+        </p>
+
+        <!-- Not logged in -->
+        <div id="notLoggedIn" style="display:none; text-align:center; padding:3rem;">
+            <p style="color:#9d4edd; font-size:1.2rem; margin-bottom:1.5rem;">
+                You must be logged in to view notifications.
+            </p>
+            <a href="login.html" class="btn">Go to Login</a>
+        </div>
+
+        <!-- Notifications UI -->
+        <div id="notificationsUI" style="display:none;">
+
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
+                <p id="unreadCount" style="color:#9d4edd; margin:0;"></p>
+                <button class="btn" id="markAllReadBtn" style="margin:0; padding:0.6rem 1.2rem; font-size:0.9rem;">
+                    Mark All as Read
+                </button>
+            </div>
+
+            <div id="notificationsList"></div>
+
+            <div id="noNotifications" style="display:none; text-align:center; padding:3rem;">
+                <p style="color:#9d4edd; font-size:1.1rem;">No notifications yet.</p>
+                <p style="color:#b3b3b3; margin-top:0.5rem;">
+                    Notifications appear when you run benchmarks, post comments, or submit reviews.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

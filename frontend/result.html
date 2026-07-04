@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXEL PUNCH - Results</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logo.png" alt="PIXEL PUNCH Logo" class="logo-img">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html" id="nav-home">Home</a></li>
+            <li>
+                <a href="benchmark.html" class="has-dropdown active" class="active" id="nav-benchmark">Benchmark</a>
+                <div class="dropdown">
+                    <a href="benchmark.html" id="nav-benchmark-test">Benchmark Test</a>
+                    <a href="result.html" class="active" id="nav-results">Results</a>
+                    <a href="compare.html" id="nav-compare">Compare</a>
+                    <a href="requirements.html" id="nav-requirements">Can I Run It?</a>
+                </div>
+            </li>
+            <li>
+                <a href="reviews.html" class="has-dropdown" id="nav-community">Community</a>
+                <div class="dropdown">
+                    <a href="reviews.html" id="nav-reviews">Reviews</a>
+                    <a href="comments.html" id="nav-comments">Comments</a>
+                </div>
+            </li>
+            <li>
+                <a href="about.html" class="has-dropdown" id="nav-info">Info</a>
+                <div class="dropdown">
+                    <a href="about.html" id="nav-about">About</a>
+                    <a href="technical_architecture.html" id="nav-tech">Technical Architecture</a>
+                    <a href="limitations.html" id="nav-limitations">Limitations</a>
+                    <a href="contact.html" id="nav-contact">Contact</a>
+                </div>
+            </li>
+            <li>
+                <a href="settings.html" class="has-dropdown" id="nav-account">Account</a>
+                <div class="dropdown">
+                    <a href="settings.html" id="nav-settings">Settings</a>
+                    <a href="notifications.html" id="nav-notifications">Notifications</a>
+                    <a href="login.html" id="nav-login">Login</a>
+                    <a href="register.html" id="nav-register">Register</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Benchmark Results</h1>
+        
+        <div class="results-container" id="resultsContainer">
+            <div class="spec-display">
+                <h3>System Configuration</h3>
+                <div class="spec-grid" id="specGrid"></div>
+            </div>
+
+            <h2>Performance Metrics</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="performanceTable">
+                    <tr><td>Minimum FPS</td><td id="minFps">-</td></tr>
+                    <tr><td>Maximum FPS</td><td id="maxFps">-</td></tr>
+                    <tr><td>Average FPS</td><td id="avgFps">-</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Resource Utilization</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Usage (%)</th>
+                    </tr>
+                </thead>
+                <tbody id="resourceTable">
+                    <tr><td>CPU Usage</td><td id="cpuUsage">-</td></tr>
+                    <tr><td>GPU Usage</td><td id="gpuUsage">-</td></tr>
+                    <tr><td>RAM Usage</td><td id="ramUsage">-</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Thermal Analysis</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Temperature Metric</th>
+                        <th>Value (°C)</th>
+                    </tr>
+                </thead>
+                <tbody id="thermalTable">
+                    <tr><td>Average CPU Temperature</td><td id="avgCpuTemp">-</td></tr>
+                    <tr><td>Average GPU Temperature</td><td id="avgGpuTemp">-</td></tr>
+                    <tr><td>Maximum CPU Temperature</td><td id="maxCpuTemp">-</td></tr>
+                    <tr><td>Maximum GPU Temperature</td><td id="maxGpuTemp">-</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Visual Analysis</h2>
+            <div class="chart-container">
+                <h3>Frame Rate Distribution</h3>
+                <canvas id="fpsChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h3>Temperature Profile</h3>
+                <canvas id="tempChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h3>Component Utilization</h3>
+                <canvas id="usageChart"></canvas>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="benchmark.html" class="btn">Run New Benchmark</a>
+            </div>
+        </div>
+
+        <div id="noResults" style="text-align: center; color: #9d4edd; padding: 3rem;">
+            <p>No benchmark results available. Please run a benchmark test first.</p>
+            <a href="benchmark.html" class="btn">Go to Benchmark Test</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

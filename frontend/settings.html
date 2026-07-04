@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXEL PUNCH - Settings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logo.png" alt="PIXEL PUNCH Logo" class="logo-img">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html" id="nav-home">Home</a></li>
+            <li>
+                <a href="benchmark.html" class="has-dropdown" id="nav-benchmark">Benchmark</a>
+                <div class="dropdown">
+                    <a href="benchmark.html" id="nav-benchmark-test">Benchmark Test</a>
+                    <a href="result.html" id="nav-results">Results</a>
+                    <a href="compare.html" id="nav-compare">Compare</a>
+                    <a href="requirements.html" id="nav-requirements">Can I Run It?</a>
+                </div>
+            </li>
+            <li>
+                <a href="reviews.html" class="has-dropdown" id="nav-community">Community</a>
+                <div class="dropdown">
+                    <a href="reviews.html" id="nav-reviews">Reviews</a>
+                    <a href="comments.html" id="nav-comments">Comments</a>
+                </div>
+            </li>
+            <li>
+                <a href="about.html" class="has-dropdown" id="nav-info">Info</a>
+                <div class="dropdown">
+                    <a href="about.html" id="nav-about">About</a>
+                    <a href="technical_architecture.html" id="nav-tech">Technical Architecture</a>
+                    <a href="limitations.html" id="nav-limitations">Limitations</a>
+                    <a href="contact.html" id="nav-contact">Contact</a>
+                </div>
+            </li>
+            <li>
+                <a href="settings.html" class="has-dropdown active" class="active" id="nav-account">Account</a>
+                <div class="dropdown">
+                    <a href="settings.html" class="active" id="nav-settings">Settings</a>
+                    <a href="notifications.html" id="nav-notifications">Notifications</a>
+                    <a href="login.html" id="nav-login">Login</a>
+                    <a href="register.html" id="nav-register">Register</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Settings</h1>
+        <p style="text-align:center; color:#9d4edd; margin-bottom:2rem;">
+            Customize your Pixel Punch experience
+        </p>
+
+        <!-- Not logged in -->
+        <div id="notLoggedIn" style="display:none; text-align:center; padding:3rem;">
+            <p style="color:#9d4edd; font-size:1.2rem; margin-bottom:1.5rem;">
+                You must be logged in to access settings.
+            </p>
+            <a href="login.html" class="btn">Go to Login</a>
+        </div>
+
+        <!-- Settings UI -->
+        <div id="settingsUI" style="display:none;">
+
+            <div id="settingsMessage" class="auth-message" style="display:none;"></div>
+
+            <div class="form-section">
+                <h2>Appearance</h2>
+                <div class="form-group">
+                    <label for="themeSelect">Theme</label>
+                    <select id="themeSelect">
+                        <option value="Dark">Dark (Default)</option>
+                        <option value="Light">Light</option>
+                    </select>
+                </div>
+                <p style="color:#b3b3b3; font-size:0.9rem; margin-top:-0.5rem;">
+                    Your theme preference is saved and applied every time you visit.
+                </p>
+            </div>
+
+            <div class="form-section">
+                <h2>Default Game</h2>
+                <div class="form-group">
+                    <label for="defaultGameSelect">Default Game for Benchmark</label>
+                    <select id="defaultGameSelect">
+                        <option value="">No default (select manually)</option>
+                        <optgroup label="Original Games">
+                            <option value="Grand Theft Auto V">Grand Theft Auto V</option>
+                            <option value="Red Dead Redemption 2">Red Dead Redemption 2</option>
+                            <option value="Elden Ring">Elden Ring</option>
+                            <option value="Fortnite">Fortnite</option>
+                            <option value="Assassin's Creed Mirage">Assassin's Creed Mirage</option>
+                            <option value="Mafia 3">Mafia 3</option>
+                            <option value="Forza Horizon 5">Forza Horizon 5</option>
+                            <option value="Ghost of Tsushima">Ghost of Tsushima</option>
+                            <option value="Resident Evil 4 Remake">Resident Evil 4 Remake</option>
+                            <option value="Valorant">Valorant</option>
+                        </optgroup>
+                        <optgroup label="New Games">
+                            <option value="Cyberpunk 2077">Cyberpunk 2077</option>
+                            <option value="The Witcher 3: Wild Hunt">The Witcher 3: Wild Hunt</option>
+                            <option value="Minecraft">Minecraft</option>
+                            <option value="Counter-Strike 2">Counter-Strike 2</option>
+                            <option value="Baldur's Gate 3">Baldur's Gate 3</option>
+                            <option value="Hades">Hades</option>
+                            <option value="Hogwarts Legacy">Hogwarts Legacy</option>
+                            <option value="Kingdom Come: Deliverance II">Kingdom Come: Deliverance II</option>
+                            <option value="Marvel Rivals">Marvel Rivals</option>
+                            <option value="Black Myth: Wukong">Black Myth: Wukong</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <p style="color:#b3b3b3; font-size:0.9rem; margin-top:-0.5rem;">
+                    This game will be pre-selected on the Benchmark page automatically.
+                </p>
+            </div>
+
+            <div class="form-section">
+                <h2>Display</h2>
+                <div class="form-group">
+                    <label for="resolutionSelect">Preferred Resolution</label>
+                    <select id="resolutionSelect">
+                        <option value="1920x1080">1920×1080 (Full HD)</option>
+                        <option value="2560x1440">2560×1440 (QHD)</option>
+                        <option value="3840x2160">3840×2160 (4K)</option>
+                        <option value="1280x720">1280×720 (HD)</option>
+                    </select>
+                </div>
+                <p style="color:#b3b3b3; font-size:0.9rem; margin-top:-0.5rem;">
+                    Saved as a preference for your display setup reference.
+                </p>
+            </div>
+
+            <div style="text-align:center; margin-top:1rem;">
+                <button class="btn" id="saveSettingsBtn" style="margin:0;">Save Settings</button>
+            </div>
+
+            <!-- Current saved settings display -->
+            <div id="currentSettings" style="display:none; margin-top:2rem;">
+                <div class="spec-display">
+                    <h3 style="margin-top:0;">Your Saved Settings</h3>
+                    <div class="spec-grid" id="savedSettingsGrid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
