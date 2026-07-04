@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXEL PUNCH - Compare Benchmarks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="logo.png" alt="PIXEL PUNCH Logo" class="logo-img">
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html" id="nav-home">Home</a></li>
+            <li>
+                <a href="benchmark.html" class="has-dropdown active" class="active" id="nav-benchmark">Benchmark</a>
+                <div class="dropdown">
+                    <a href="benchmark.html" id="nav-benchmark-test">Benchmark Test</a>
+                    <a href="result.html" id="nav-results">Results</a>
+                    <a href="compare.html" class="active" id="nav-compare">Compare</a>
+                    <a href="requirements.html" id="nav-requirements">Can I Run It?</a>
+                </div>
+            </li>
+            <li>
+                <a href="reviews.html" class="has-dropdown" id="nav-community">Community</a>
+                <div class="dropdown">
+                    <a href="reviews.html" id="nav-reviews">Reviews</a>
+                    <a href="comments.html" id="nav-comments">Comments</a>
+                </div>
+            </li>
+            <li>
+                <a href="about.html" class="has-dropdown" id="nav-info">Info</a>
+                <div class="dropdown">
+                    <a href="about.html" id="nav-about">About</a>
+                    <a href="technical_architecture.html" id="nav-tech">Technical Architecture</a>
+                    <a href="limitations.html" id="nav-limitations">Limitations</a>
+                    <a href="contact.html" id="nav-contact">Contact</a>
+                </div>
+            </li>
+            <li>
+                <a href="settings.html" class="has-dropdown" id="nav-account">Account</a>
+                <div class="dropdown">
+                    <a href="settings.html" id="nav-settings">Settings</a>
+                    <a href="notifications.html" id="nav-notifications">Notifications</a>
+                    <a href="login.html" id="nav-login">Login</a>
+                    <a href="register.html" id="nav-register">Register</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Compare Benchmarks</h1>
+        <p style="text-align:center; color:#9d4edd; margin-bottom:2rem;">
+            Select two of your benchmark results to compare them side by side
+        </p>
+
+        <!-- Not logged in message -->
+        <div id="notLoggedIn" style="display:none; text-align:center; padding:3rem;">
+            <p style="color:#9d4edd; font-size:1.2rem; margin-bottom:1.5rem;">
+                You must be logged in to compare benchmarks.
+            </p>
+            <a href="login.html" class="btn">Go to Login</a>
+        </div>
+
+        <!-- Main compare UI -->
+        <div id="compareUI">
+            <div class="form-section">
+                <h2>Select Two Results to Compare</h2>
+                <p style="color:#b3b3b3; margin-bottom:1.5rem;">
+                    These are loaded from your saved benchmark history.
+                </p>
+
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:1.5rem;">
+                    <div class="form-group" style="margin:0;">
+                        <label for="resultA">Result A</label>
+                        <select id="resultA">
+                            <option value="">-- Select a result --</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin:0;">
+                        <label for="resultB">Result B</label>
+                        <select id="resultB">
+                            <option value="">-- Select a result --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="selectMessage" style="display:none; margin-bottom:1rem; font-size:0.95rem;"></div>
+
+                <div style="text-align:center;">
+                    <button class="btn" id="compareBtn" style="margin:0;">Compare Now</button>
+                </div>
+            </div>
+
+            <!-- Comparison Results -->
+            <div id="comparisonResult" style="display:none;">
+                <h2>Comparison Results</h2>
+
+                <!-- Header row showing game + hardware for each -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:2rem;">
+                    <div class="spec-display" style="margin:0;">
+                        <h3 style="margin-top:0; color:#c77dff;">Result A</h3>
+                        <div id="headerA"></div>
+                    </div>
+                    <div class="spec-display" style="margin:0;">
+                        <h3 style="margin-top:0; color:#c77dff;">Result B</h3>
+                        <div id="headerB"></div>
+                    </div>
+                </div>
+
+                <!-- Side-by-side comparison table -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th id="colA">Result A</th>
+                            <th id="colB">Result B</th>
+                            <th>Winner</th>
+                        </tr>
+                    </thead>
+                    <tbody id="comparisonTable"></tbody>
+                </table>
+
+                <div id="saveCompareMsg" style="text-align:center; margin:1rem 0; font-size:0.95rem; display:none;"></div>
+
+                <div style="text-align:center; margin-top:1.5rem;">
+                    <a href="benchmark.html" class="btn">Run New Benchmark</a>
+                </div>
+            </div>
+
+            <!-- Past Comparisons -->
+            <div id="pastComparisons" style="margin-top:3rem; display:none;">
+                <h2>Your Past Comparisons</h2>
+                <p style="color:#9d4edd; margin-bottom:1.5rem;">Previously saved comparisons.</p>
+                <div id="pastComparisonsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
