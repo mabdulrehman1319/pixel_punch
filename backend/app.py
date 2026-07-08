@@ -50,7 +50,7 @@ SUPPORTED_GAMES = [
 ]
 
 
-# STATIC FILE SERVING
+# Serves the frontend's index page and static assets directly from Flask
 @app.route('/')
 def serve_index():
     return send_from_directory('../frontend', 'index.html')
@@ -61,14 +61,14 @@ def serve_static(path):
 
 
 
-# AUTH ROUTES
+# Auth routes: register, login, logout, and session check
 @app.route('/api/register', methods=['POST'])
 def register():
     """Register a new user and insert into the Users table."""
     try:
         data = request.get_json()
 
-        # --- Validate required fields ---
+        # Validate required fields
         username = (data.get('username') or '').strip()
         email    = (data.get('email')    or '').strip()
         password = (data.get('password') or '').strip()
@@ -82,10 +82,10 @@ def register():
         if len(password) < 6:
             return jsonify({"error": "Password must be at least 6 characters."}), 400
 
-        # --- Hash password ---
+        # Hash password before storing it
         password_hash = hash_password(password)
 
-        # --- Insert into DB ---
+        # Insert into DB
         conn   = get_db_connection()
         cursor = conn.cursor()
 
@@ -191,9 +191,7 @@ def me():
     return jsonify({"logged_in": False}), 200
 
 
-# ──────────────────────────────────────────────
-# DB HELPER FUNCTIONS
-# ──────────────────────────────────────────────
+# DB helper functions - get an existing row or create it if it doesn't exist yet
 
 def get_or_create_cpu(cursor, cpu_name, cpu_speed):
     """
@@ -385,9 +383,7 @@ def get_or_create_game(cursor, game_title):
     return cursor.fetchone().GameID
 
 
-# ──────────────────────────────────────────────
-# BENCHMARK ROUTE — calculates + saves to DB
-# ──────────────────────────────────────────────
+# Runs a benchmark and saves the result to the DB if the user is logged in
 @app.route('/api/benchmark', methods=['POST'])
 def benchmark():
     """Handle benchmark requests. Saves results to DB if user is logged in."""
@@ -414,7 +410,7 @@ def benchmark():
         except ValueError:
             return jsonify({"error": "Invalid numeric values"}), 400
 
-        # --- Calculate benchmark results ---
+        # Calculate benchmark results
         calculator = BenchmarkCalculator(
             cpu_name   = data['cpu_name'],
             cpu_speed  = cpu_speed,
@@ -425,7 +421,7 @@ def benchmark():
         )
         results = calculator.get_results()
 
-        # --- Save to database ---
+        # Save to database
         conn   = get_db_connection()
         cursor = conn.cursor()
 
@@ -474,9 +470,7 @@ def benchmark():
         return jsonify({"error": str(e)}), 500
 
 
-# ──────────────────────────────────────────────
-# BENCHMARK HISTORY ROUTE
-# ──────────────────────────────────────────────
+# Returns the logged-in user's last 10 benchmark results
 @app.route('/api/benchmark/history', methods=['GET'])
 def benchmark_history():
     """Return the last 10 benchmark results for the logged-in user."""
@@ -532,9 +526,7 @@ def get_supported_games():
     return jsonify({"games": SUPPORTED_GAMES}), 200
 
 
-# ──────────────────────────────────────────────
-# HARDWARE PROFILES ROUTES
-# ──────────────────────────────────────────────
+# Hardware profile routes - save, list, and delete a user's PC specs
 
 @app.route('/api/profiles', methods=['GET'])
 def get_profiles():
@@ -661,9 +653,7 @@ def delete_profile(profile_id):
         return jsonify({"error": str(e)}), 500
 
 
-# ──────────────────────────────────────────────
-# BENCHMARK COMPARISONS ROUTES
-# ──────────────────────────────────────────────
+# Comparison routes - compare two saved benchmark results side by side
 
 @app.route('/api/compare', methods=['POST'])
 def compare_benchmarks():
@@ -804,11 +794,9 @@ def compare_history():
         return jsonify({"error": str(e)}), 500
 
 
-# ──────────────────────────────────────────────
-# GAME REQUIREMENTS ROUTE
-# ──────────────────────────────────────────────
+# Game requirements route - checks a user's specs against a game's requirements
 
-# Full requirements data for all 10 supported games
+# Full requirements data for all supported games
 GAME_REQUIREMENTS_DATA = {
     "Grand Theft Auto V": {
         "min_ram": 8, "recommended_ram": 16,
@@ -995,9 +983,7 @@ def check_requirements():
         return jsonify({"error": str(e)}), 500
 
 
-# ──────────────────────────────────────────────
-# SETTINGS ROUTES
-# ──────────────────────────────────────────────
+# Settings routes - get and save a user's theme, resolution, and default game
 
 @app.route('/api/settings', methods=['GET'])
 def get_settings():
@@ -1098,9 +1084,7 @@ def save_settings():
         return jsonify({"error": str(e)}), 500
 
 
-# ──────────────────────────────────────────────
-# REVIEWS ROUTES
-# ──────────────────────────────────────────────
+# Review routes - submit and fetch star ratings + written reviews for a game
 
 @app.route('/api/reviews', methods=['POST'])
 def submit_review():
@@ -1208,9 +1192,7 @@ def get_reviews(game):
         return jsonify({"error": str(e)}), 500
 
 
-# ──────────────────────────────────────────────
-# COMMENTS ROUTES
-# ──────────────────────────────────────────────
+# Comment routes - post and fetch comments on a specific benchmark result
 
 @app.route('/api/comments', methods=['POST'])
 def submit_comment():
@@ -1295,9 +1277,7 @@ def get_comments(result_id):
         return jsonify({"error": str(e)}), 500
 
 
-# ──────────────────────────────────────────────
-# NOTIFICATIONS HELPER + ROUTES
-# ──────────────────────────────────────────────
+# Notifications - insert a notification after key actions, list and mark them read
 
 def create_notification(cursor, user_id, message):
     """Insert a notification row for a user. Called internally after key actions."""
