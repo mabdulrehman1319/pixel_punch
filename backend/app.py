@@ -13,7 +13,7 @@ CORS(app, supports_credentials=True)
 def get_db_connection():
     conn = pyodbc.connect(
         'DRIVER={ODBC Driver 17 for SQL Server};'
-        'SERVER=abdulrehman\\SQLEXPRESS;'          
+        'SERVER=abdulrehman\\SQLEXPRESS;'  #your own sql server name        
         'DATABASE=PixelPunchDB;'
         'Trusted_Connection=yes;'   
     )
