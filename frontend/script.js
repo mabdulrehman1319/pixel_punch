@@ -1,4 +1,4 @@
-// ── Prevent dropdown parent links (#) from jumping to page top ──
+// Prevent dropdown parent links (#) from jumping to page top
 document.addEventListener('click', (e) => {
     const link = e.target.closest('a.has-dropdown');
     if (link && link.getAttribute('href') === '#') {
@@ -6,9 +6,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// ──────────────────────────────────────────────
-// AUTH HELPERS
-// ──────────────────────────────────────────────
+// Auth helpers
 
 function showAuthMessage(message, type) {
     const el = document.getElementById('authMessage');
@@ -19,7 +17,7 @@ function showAuthMessage(message, type) {
     if (type === 'success') setTimeout(() => { el.style.display = 'none'; }, 4000);
 }
 
-// ── REGISTER FORM ──
+// Register form
 if (document.getElementById('registerForm')) {
     document.getElementById('registerForm').addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -74,7 +72,7 @@ if (document.getElementById('registerForm')) {
     });
 }
 
-// ── LOGIN FORM ──
+// Login form
 if (document.getElementById('loginForm')) {
     document.getElementById('loginForm').addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -116,7 +114,7 @@ if (document.getElementById('loginForm')) {
     });
 }
 
-// ── LOGOUT BUTTON (works on any page) ──
+// Logout button (works on any page)
 document.addEventListener('click', async (e) => {
     if (e.target && e.target.id === 'logoutBtn') {
         try {
@@ -134,9 +132,7 @@ document.addEventListener('click', async (e) => {
     }
 });
 
-// ──────────────────────────────────────────────
-// HARDWARE PROFILES (benchmark page)
-// ──────────────────────────────────────────────
+// Hardware profiles (benchmark page)
 
 async function initProfiles() {
     const profileSection     = document.getElementById('profileSection');
@@ -299,9 +295,7 @@ if (document.getElementById('benchmarkForm')) {
     initProfiles();
 }
 
-// ──────────────────────────────────────────────
-// BENCHMARK FORM SUBMIT
-// ──────────────────────────────────────────────
+// Benchmark form submit
 
 let charts = {
     fps: null,
@@ -679,9 +673,7 @@ function createCharts(data) {
         });
     }
 }
-// ──────────────────────────────────────────────
-// BENCHMARK COMPARISONS PAGE
-// ──────────────────────────────────────────────
+// Benchmark comparisons page
 
 if (document.getElementById('compareBtn')) {
     const username = localStorage.getItem('pp_username');
@@ -892,9 +884,7 @@ async function loadPastComparisons() {
     }
 }
 
-// ──────────────────────────────────────────────
-// GAME REQUIREMENTS PAGE
-// ──────────────────────────────────────────────
+// Game requirements page
 
 if (document.getElementById('checkReqBtn')) {
     document.getElementById('checkReqBtn').addEventListener('click', async () => {
@@ -1022,9 +1012,7 @@ function showReqMsg(message, type) {
     setTimeout(() => { el.style.display = 'none'; }, 4000);
 }
 
-// ──────────────────────────────────────────────
-// SETTINGS PAGE
-// ──────────────────────────────────────────────
+// Settings page
 
 if (document.getElementById('saveSettingsBtn')) {
     const username = localStorage.getItem('pp_username');
@@ -1130,7 +1118,7 @@ function showCurrentSettings(theme, resolution, defaultGame) {
     `;
 }
 
-// ── Apply theme globally (runs on every page load) ──
+// Apply theme globally (runs on every page load)
 function applyTheme(theme) {
     if (theme === 'Light') {
         document.body.classList.add('light-theme');
@@ -1139,12 +1127,12 @@ function applyTheme(theme) {
     }
 }
 
-// ── On every page: apply saved theme + default game + nav auth state ──
+// On every page: apply saved theme + default game + nav auth state
 (function initGlobalSettings() {
     const savedTheme = localStorage.getItem('pp_theme');
     if (savedTheme) applyTheme(savedTheme);
 
-    // ── Show page banner (after register / logout redirect) ──
+    // Show page banner (after register / logout redirect)
     const pendingBanner = localStorage.getItem('pp_banner');
     if (pendingBanner) {
         localStorage.removeItem('pp_banner');
@@ -1166,7 +1154,7 @@ function applyTheme(theme) {
 
     const username = localStorage.getItem('pp_username');
 
-    // ── PAGE PROTECTION ──
+    // Page protection - redirect logged-out users away from restricted pages
     const page = window.location.pathname.split('/').pop();
     const protectedPages = ['benchmark.html', 'result.html', 'compare.html', 'requirements.html', 'comments.html'];
 
@@ -1189,7 +1177,7 @@ function applyTheme(theme) {
         if (defaultGame) gameSelect.value = defaultGame;
     }
 
-    // ── Update nav Account dropdown based on login state ──
+    // Update nav Account dropdown based on login state
     const allDropdowns = document.querySelectorAll('nav .dropdown');
     let accountDrop = null;
     allDropdowns.forEach(d => {
@@ -1226,9 +1214,7 @@ function applyTheme(theme) {
     }
 })();
 
-// ──────────────────────────────────────────────
-// REVIEWS PAGE
-// ──────────────────────────────────────────────
+// Reviews page
 
 if (document.getElementById('submitReviewBtn')) {
     const username = localStorage.getItem('pp_username');
@@ -1240,7 +1226,7 @@ if (document.getElementById('submitReviewBtn')) {
         document.getElementById('loginPrompt').style.display = 'block';
     }
 
-    // ── Star rating interaction ──
+    // Star rating interaction
     let selectedRating = 0;
     const stars = document.querySelectorAll('.star-rating .star');
     const ratingLabels = ['', 'Poor', 'Fair', 'Good', 'Very Good', 'Excellent'];
@@ -1265,7 +1251,7 @@ if (document.getElementById('submitReviewBtn')) {
         });
     });
 
-    // ── Submit review ──
+    // Submit review
     document.getElementById('submitReviewBtn').addEventListener('click', async () => {
         const game       = document.getElementById('reviewGame').value;
         const reviewText = document.getElementById('reviewText').value.trim();
@@ -1311,7 +1297,7 @@ if (document.getElementById('submitReviewBtn')) {
         }
     });
 
-    // ── Browse reviews by game ──
+    // Browse reviews by game
     document.getElementById('browseGame').addEventListener('change', async () => {
         const game = document.getElementById('browseGame').value;
         if (!game) {
@@ -1384,9 +1370,7 @@ function showReviewMsg(message, type) {
     setTimeout(() => { el.style.display = 'none'; }, 4000);
 }
 
-// ──────────────────────────────────────────────
-// COMMENTS (on Results page history section)
-// ──────────────────────────────────────────────
+// Comments (on Results page history section)
 
 async function loadCommentsForResult(resultId) {
     try {
@@ -1492,11 +1476,9 @@ async function postComment(resultId) {
     }
 }
 
-// ──────────────────────────────────────────────
-// NOTIFICATIONS
-// ──────────────────────────────────────────────
+// Notifications
 
-// ── Bell badge: runs on every page ──
+// Bell badge: runs on every page
 async function loadNotificationBadge() {
     if (!localStorage.getItem('pp_username')) return;
     try {
@@ -1521,7 +1503,7 @@ async function loadNotificationBadge() {
     }
 }
 
-// ── Notifications page ──
+// Notifications page
 if (document.getElementById('markAllReadBtn')) {
     const username = localStorage.getItem('pp_username');
     if (!username) {
