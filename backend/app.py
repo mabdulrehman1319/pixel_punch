@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, send_from_directory, session
+from dotenv import load_dotenv
 from flask_cors import CORS
 import pyodbc
 import hashlib
@@ -6,7 +7,8 @@ import os
 from benchmark_algorithm import BenchmarkCalculator
 
 app = Flask(__name__, static_folder='../frontend')
-app.secret_key = 'pixelpunch_secret_key_change_in_production'
+load_dotenv()
+app.secret_key = os.environ.get('FLASK_SECRET_KEY')
 CORS(app, supports_credentials=True)
 
 
