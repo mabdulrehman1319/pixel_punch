@@ -16,6 +16,7 @@ A full-stack PC gaming benchmark web app that predicts FPS, resource usage, and 
 - **Frontend:** HTML, CSS, JavaScript
 
 ## Project Structure
+```
 pixel_punch/
 ├── backend/
 │   ├── app.py
@@ -24,6 +25,7 @@ pixel_punch/
 ├── frontend/
 │   └── (HTML, CSS, JS files)
 └── PixelPunchDB.sql
+```
 
 ## Setup
 1. **Clone the repository**
