@@ -42,7 +42,9 @@ pixel_punch/
    pip install -r requirements.txt
 ```
    Create a `.env` file in the `backend/` folder with:
+   
    FLASK_SECRET_KEY=your-own-generated-secret-key
+   
    Generate a key with:
 ```bash
    python -c "import secrets; print(secrets.token_hex(32))"
